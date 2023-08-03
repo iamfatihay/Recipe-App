@@ -140,3 +140,10 @@ export default auth;
    ```
 
 6. Open your web browser and visit **http://localhost:3000** to explore the Recipe Application.
+
+
+## Contribution
+Contributions to the project are welcome! If you find any bugs or want to add new features, please create an issue or submit a pull request.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for more information.
