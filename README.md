@@ -114,23 +114,24 @@ To run the application on your local machine, follow these steps:
   import 'firebase/auth';
   // Add other Firebase services if you're going to use them
 
-const firebaseConfig = {
-apiKey: "YOUR_API_KEY",
-authDomain: "YOUR_AUTH_DOMAIN",
-projectId: "YOUR_PROJECT_ID",
-storageBucket: "YOUR_STORAGE_BUCKET",
-messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-appId: "YOUR_APP_ID"
-};
+  const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+   };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+   // Initialize Firebase
+   firebase.initializeApp(firebaseConfig);
 
-// Other Firebase configurations
-const auth = firebase.auth();
-// Add other Firebase services initialization here if needed
+   // Other Firebase configurations
+   const auth = firebase.auth();
+   // Add other Firebase services initialization here if needed
 
-export default auth;
+   export default auth;
+  
 - Replace YOUR_API_KEY, YOUR_AUTH_DOMAIN, YOUR_PROJECT_ID, YOUR_STORAGE_BUCKET, YOUR_MESSAGING_SENDER_ID, and YOUR_APP_ID with your actual Firebase project credentials.
 - Now you have configured Firebase for the project. You can use this configuration to implement features like user authentication, data storage, and more.
 
