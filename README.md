@@ -72,8 +72,8 @@ This is a simple recipe application that allows users to search and explore vari
 ## Expected Outcomes
 
 <div >
-<img width="660px" src="./blog-app.gif"/>
-<img width="160px" src="./blog-app1.gif"/>
+<img width="660px" src="./recipe.gif"/>
+<img width="160px" src="./recipe1.gif"/>
 </div>
 
 ## Technologies and Libraries
