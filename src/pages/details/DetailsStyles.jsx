@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const DetailContainer = styled.div`
-  /* en dış container */
+  /* en diş container */
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -13,7 +13,7 @@ export const DetailContainer = styled.div`
 `;
 
 export const DetailPart = styled.div`
-  /* verilerin , içindekiler,resim ve Nutrients in yazdığı yer */
+  /* verilerin , içindekiler,resim ve Nutrients in yazdiği yer */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -45,7 +45,7 @@ export const ImgContainer = styled.div`
 `;
 
 export const HeaderContainer = styled.div`
-  /* üstteki başlık ve kadın resmi */
+  /* üstteki başlik ve kadin resmi */
   background-color: darkgray;
   display: flex;
   justify-content: center;

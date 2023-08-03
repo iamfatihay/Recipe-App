@@ -7,17 +7,15 @@ const Navbar = () => {
 
   const { logOut, currentUser } = useContext(AuthContext);
   const [acik, setAcik] = useState(false);
-  //!!  setAcık stile props yollayınca dropdown ı açılır kapanır yapmış oluyor, height a 300px yada 0 vererek
+
   return (
     <Nav>
-      {/* logo daki setAcik ayrıntı bişey merdiven açıkken home a basılırsa kapansın diye*/}
       <div className="pl-10">
         <Logo to="/home" onClick={() => setAcik(false)}>
           <i>{"<Fatih Ay>"}</i>
           {/* tag lere özel < işaretlerini string gibi kullanmak istersek üstteki syntax la yazarız */}
         </Logo>
       </div>
-
 
       <Hamburger onClick={() => setAcik(!acik)}>
         <GiHamburgerMenu />
@@ -35,15 +33,6 @@ const Navbar = () => {
         {currentUser ? (<div className="sekme">
           <MenuLink to="/" onClick={() => logOut()} >Logout</MenuLink>
         </div>): null}
-        
-
-        {/* github linki için a tag i yerine, react-router-dom dan Link kullanmak istersek, alttaki yorumları açmalıyız */}
-        {/* <MenuLink
-          to="/external"
-          target="_blank"
-        >Github</MenuLink> */}
-
-
       </Menu>
     </Nav>
   )

@@ -14,7 +14,6 @@ const Home = () => {
   const [ögün, setOgun] = useState("Breakfast");
   const [yemekler, setYemekler] = useState([]);
 
-  // query=yazdığımız sorgu kelimesi, ogun=breakfast vs
   const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${ögün}`;
 
   const getData = async () => {

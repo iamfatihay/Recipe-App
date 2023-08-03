@@ -13,7 +13,7 @@ const Footer = () => {
         // Noreferrer, yönlendirme bilgilerinin hedef web sitesine aktarılmasını önlemek için kullanılır ve bu aynı zamanda Google analitikteki yönlendirme trafiğini de gizler.
         style={{ textDecoration: "none" }}
       >
-        <code className="brand">{"<Fatih Ay/> "}</code>
+        <code className="brand">{"<Fatih Ay/>"}</code>
         {/* <></> işaretleriyle kod formatında yazabilmek  için code */}
       </a>
       <img
