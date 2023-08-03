@@ -1,6 +1,6 @@
 # Recipe App
 
-## Live Link: https://fatihay-blog-app.vercel.app/
+## Live Link: https://recipe-app-fay.vercel.app/
 
 ## Description
 
