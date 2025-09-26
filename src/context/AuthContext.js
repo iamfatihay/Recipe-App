@@ -3,14 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { createContext } from "react";
 import { auth } from '../auth/firebase';
 import { toastErrorNotify, toastSuccessNotify, toastWarnNotify } from '../helpers/ToastNotify';
-import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext()
 
 const AuthContextProvider = ({ children }) => {
 
     const [currentUser, setCurrentUser] = useState(null)
-    let navigate = useNavigate();
 
     useEffect(() => {
         userObserver()
@@ -25,7 +23,6 @@ const AuthContextProvider = ({ children }) => {
             //* Kullanicinin profilini guncellemek icin kullanilan firebase komutu
             await updateProfile(auth.currentUser, {displayName})
             toastSuccessNotify("Registered successfully!")
-            navigate("/")
             console.log(userCredential);
         } catch (error) {
             console.log(error);
@@ -36,7 +33,6 @@ const AuthContextProvider = ({ children }) => {
         try {
             await signInWithEmailAndPassword(auth, email, password)
             toastSuccessNotify("Logged in successfully!");
-            navigate("/home");
         } catch (error) {
             toastErrorNotify(error.message)
         }
@@ -66,7 +62,6 @@ const AuthContextProvider = ({ children }) => {
         signInWithPopup(auth, provider)
             .then((result) => {
                 toastSuccessNotify("Logged in successfully!")
-                navigate("/home");
             }).catch((error) => {
                 console.log(error);
             });

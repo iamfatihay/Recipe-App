@@ -18,6 +18,10 @@ const Home = () => {
 
   const getData = async () => {
     try {
+      if (!query.trim()) {
+        console.log("Query is empty, using default search");
+        return;
+      }
       const veri = await axios.get(url);
       setYemekler(veri.data.hits);
       console.log(veri.data.hits);
@@ -27,9 +31,18 @@ const Home = () => {
   };
 
   useEffect(() => {
-    getData()
+    // Initial load with default query
+    const defaultQuery = "chicken";
+    setQuery(defaultQuery);
     // eslint-disable-next-line
   }, [])
+
+  useEffect(() => {
+    if (query) {
+      getData();
+    }
+    // eslint-disable-next-line
+  }, [query, ögün])
 
   console.log(yemekler);
 

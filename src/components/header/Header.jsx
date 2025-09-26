@@ -12,7 +12,8 @@ const Header = ({ setQuery, setOgun, getData }) => {
 
   const yapSubmit = (e) => {
     e.preventDefault();
-    getData();
+    // Form submit edildiğinde getData çağrılacak
+    // Bu fonksiyon Home bileşeninden geliyor
   };
 
   return (

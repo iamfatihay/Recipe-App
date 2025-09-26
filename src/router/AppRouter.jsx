@@ -31,7 +31,9 @@ const AppRouter = () => {
                     <Route path="" element={<About />} />
                 </Route>
 
-                <Route path="/details" element={<Details />} />
+                <Route path="/details" element={<PrivateRouter />}>
+                    <Route path="" element={<Details />} />
+                </Route>
 
             </Routes>
             {currentUser ? (<Footer />) : null}
