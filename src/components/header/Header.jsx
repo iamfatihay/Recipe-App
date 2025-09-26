@@ -9,11 +9,11 @@ import {
 } from "./HeaderStyles";
 
 const Header = ({ setQuery, setOgun, getData }) => {
-  const yapSubmit = (e) => {
-    e.preventDefault();
-    // Form submit edildiğinde getData çağrılacak
-    getData();
-  };
+    const yapSubmit = (e) => {
+        e.preventDefault();
+        // Form submit edildiğinde getData çağrılacak
+        getData();
+    };
 
     return (
         <HeaderContainer>
