@@ -5,7 +5,8 @@ import { HomeImg, ImgDiv } from "./HomeStyles";
 import homeSvg from "../../assets/home.svg";
 
 const APP_ID = process.env.REACT_APP_APP_ID || "a658d166";
-const APP_KEY = process.env.REACT_APP_APP_KEY || "873bde986100aef8b561fc76713c9a2f";
+const APP_KEY =
+    process.env.REACT_APP_APP_KEY || "873bde986100aef8b561fc76713c9a2f";
 
 const Home = () => {
     const [query, setQuery] = useState("");
@@ -24,15 +25,16 @@ const Home = () => {
         setError(null);
 
         try {
-            // Doğrudan Edamam API çağrısı
-            const url = `https://api.edamam.com/search?q=${encodeURIComponent(
+            // Proxy server üzerinden Edamam API çağrısı
+            const url = `http://localhost:5000/api/recipes?q=${encodeURIComponent(
                 searchQuery
-            )}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${ögün}`;
+            )}&mealType=${ögün}`;
 
-            const response = await fetch(url, {
-                method: 'GET',
-                mode: 'no-cors', // CORS sorununu çözmek için
-            });
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
 
             const data = await response.json();
             setYemekler(data.hits);
