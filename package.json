@@ -21,9 +21,7 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "server": "node server.js",
-        "dev": "concurrently \"npm start\" \"npm run server\""
+        "eject": "react-scripts eject"
     },
     "eslintConfig": {
         "extends": [
@@ -44,8 +42,6 @@
         ]
     },
     "devDependencies": {
-        "concurrently": "^7.6.0",
-        "cors": "^2.8.5",
         "tailwindcss": "^3.3.3"
     }
 }

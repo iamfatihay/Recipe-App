@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/header/Header";
 import RecipeCard from "./RecipeCard";
 import { HomeImg, ImgDiv } from "./HomeStyles";
@@ -15,41 +14,39 @@ const Home = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const getData = useCallback(
-        async (searchQuery = query) => {
-            if (!searchQuery.trim()) {
-                console.log("Query is empty");
-                return;
-            }
+    const getData = async (searchQuery = query) => {
+        if (!searchQuery.trim()) {
+            console.log("Query is empty");
+            return;
+        }
 
-            setLoading(true);
-            setError(null);
+        setLoading(true);
+        setError(null);
 
-            try {
-                // Backend proxy üzerinden API çağrısı
-                const url = `http://localhost:5000/api/recipes?q=${encodeURIComponent(searchQuery)}&mealType=${ögün}`;
-                
-                const response = await fetch(url);
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                setYemekler(data.hits);
-                console.log("API Response:", data.hits);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-                setError(
-                    "Tarifler yüklenirken bir hata oluştu. Lütfen tekrar deneyin."
-                );
-                setYemekler([]);
-            } finally {
-                setLoading(false);
-            }
-        },
-        [query, ögün]
-    );
+        try {
+            // Doğrudan Edamam API çağrısı
+            const url = `https://api.edamam.com/search?q=${encodeURIComponent(
+                searchQuery
+            )}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${ögün}`;
+
+            const response = await fetch(url, {
+                method: 'GET',
+                mode: 'no-cors', // CORS sorununu çözmek için
+            });
+
+            const data = await response.json();
+            setYemekler(data.hits);
+            console.log("API Response:", data.hits);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            setError(
+                "Tarifler yüklenirken bir hata oluştu. Lütfen tekrar deneyin."
+            );
+            setYemekler([]);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     useEffect(() => {
         // Initial load with default query
@@ -68,7 +65,8 @@ const Home = () => {
         }, 500); // 500ms delay
 
         return () => clearTimeout(timeoutId);
-    }, [query, getData]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [query]);
 
     // Effect for meal type changes
     useEffect(() => {
